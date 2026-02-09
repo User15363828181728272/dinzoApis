@@ -4,16 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Browse through our collection of code snippets, scripts, and tools. Find what you need or discover something new.">
-<meta name="theme-color" content="#000000">
-<title>Dinzo API.</title>
+<meta name="theme-color" content="#000000"> <!-- Changed for black theme -->
+<title>Dinzo API.</title> <!-- Changed title -->
 <link rel="icon" href="/src/icon.png" type="image/png">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css"> <!-- Changed to dark style -->
 <script defer src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/json.min.js"></script>
 <script>
@@ -31,17 +33,17 @@ fontFamily: {
 </script>
 <style>
 :root {
---background: #000000;
---foreground: #ffffff;
---card: rgba(30, 30, 30, 0.85);
+--background: #000000; /* Full black background */
+--foreground: #ffffff; /* White text */
+--card: rgba(30, 30, 30, 0.85); /* Dark glass card */
 --card-foreground: #ffffff;
---primary: #ffffff;
---primary-foreground: #000000;
+--primary: #ffffff; /* White primary elements */
+--primary-foreground: #000000; /* Black text on primary */
 --secondary: #555555;
 --accent: #48d1cc;
 --muted: #222222;
 --muted-foreground: #aaaaaa;
---border: rgba(255, 255, 255, 0.1);
+--border: rgba(255, 255, 255, 0.1); /* Subtle white border */
 --radius: 0.5rem;
 --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.6);
@@ -184,12 +186,13 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 transform: scale(1.1);
 box-shadow: var(--shadow);
 }
+/* Existing styles from the original file */
 ::-webkit-scrollbar {
 display: none !important;
 }
 .glass {
 backdrop-filter: blur(16px) saturate(180%);
-background: rgba(0, 0, 0, 0.85);
+background: rgba(0, 0, 0, 0.85); /* Changed to black glass */
 border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .loader {
@@ -200,8 +203,13 @@ border-top: 2px solid #4a5568;
 border-radius: 50%;
 animation: spin 1s linear infinite;
 }
+@keyframes spin {
+to {
+transform: rotate(360deg);
+}
+}
 .gradient-text {
-background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%); /* Changed for black theme */
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
@@ -215,10 +223,10 @@ transform: translateY(-1px);
 box-shadow: 0 10px 25px -5px rgba(235, 235, 235, 0.4);
 }
 .copy-btn {
-@apply text-gray-300 hover:text-white p-1 rounded-md hover:bg-gray-700 transition-colors duration-150;
+@apply text-gray-300 hover:text-white p-1 rounded-md hover:bg-gray-700 transition-colors duration-150; /* Changed colors */
 }
 .block-title {
-@apply text-sm font-semibold text-gray-300 mb-2 flex items-center justify-between;
+@apply text-sm font-semibold text-gray-300 mb-2 flex items-center justify-between; /* Changed colors */
 }
 @keyframes fadeIn {
 from {
@@ -249,64 +257,7 @@ transform: scale(0.98);
 .fade-out {
 animation: fadeOut 0.2s ease-out forwards;
 }
-
-/* SMOOTH TOGGLE TRANSITIONS */
-.smooth-toggle {
-max-height: 0;
-overflow: hidden;
-opacity: 0;
-transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-opacity 0.3s ease-out;
-}
-.smooth-toggle.expanded {
-max-height: 5000px;
-opacity: 1;
-}
-
-/* EXECUTE BUTTON */
-.execute-button {
-background-color: #ef4444;
-color: white;
-transition: all 0.2s ease;
-border-radius: 0.375rem;
-}
-.execute-button:hover {
-background-color: #dc2626;
-transform: translateY(-1px);
-box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
-}
-.execute-button:active {
-transform: translateY(0);
-}
-
-/* CLEAR BUTTON */
-.clear-button {
-transition: all 0.2s ease;
-border-radius: 0.375rem;
-}
-.clear-button:hover {
-transform: translateY(-1px);
-box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-}
-
-/* CATEGORY AND ENDPOINT CARDS */
-.category-card {
-transition: all 0.2s ease;
-border-radius: 0.5rem;
-}
-.category-card:hover {
-border-color: rgba(255, 255, 255, 0.3);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.endpoint-card {
-transition: all 0.2s ease;
-}
-.endpoint-card:hover {
-background-color: rgba(40, 40, 40, 0.5);
-}
-
-/* RESPONSIVE FULL WIDTH */
+/* Full-width container overrides */
 .max-w-2xl {
 max-width: 100%;
 }
@@ -314,49 +265,41 @@ max-width: 100%;
 padding-left: 2rem;
 padding-right: 2rem;
 }
+.py-16 {
+padding-top: 4rem;
+padding-bottom: 4rem;
+}
+.py-4 {
+padding-top: 1rem;
+padding-bottom: 1rem;
+}
+.py-10 {
+padding-top: 2.5rem;
+padding-bottom: 2.5rem;
+}
+.py-20 {
+padding-top: 5rem;
+padding-bottom: 5rem;
+}
+.px-4 {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+.max-w-4xl {
+max-width: 100%;
+}
+.max-w-7xl {
+max-width: 100%;
+}
+.max-w-full {
+max-width: 100%;
+}
 .container {
 width: 100%;
 padding-left: 2rem;
 padding-right: 2rem;
 }
-
-/* BUTTON GROUPS */
-.button-group {
-display: flex;
-gap: 0.5rem;
-flex-wrap: wrap;
-align-items: center;
-}
-
-/* FORM IMPROVEMENTS */
-input[type="text"],
-input[type="number"],
-input[type="file"],
-select,
-textarea {
-transition: all 0.2s ease;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="file"]:focus,
-select:focus,
-textarea:focus {
-border-color: rgba(255, 255, 255, 0.4);
-box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-}
-
-/* NOTIFICATION IMPROVEMENTS */
-.notification-item {
-transition: all 0.3s ease;
-border-radius: 0.5rem;
-}
-.notification-item:hover {
-transform: translateX(4px);
-border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* RESPONSIVE ADJUSTMENTS */
+/* Responsive adjustments */
 @media (max-width: 768px) {
 .px-8 {
 padding-left: 1rem;
@@ -366,76 +309,60 @@ padding-right: 1rem;
 padding-top: 2rem;
 padding-bottom: 2rem;
 }
-.button-group {
-flex-direction: column;
-width: 100%;
+.py-10 {
+padding-top: 1.5rem;
+padding-bottom: 1.5rem;
 }
-.button-group button {
-width: 100%;
+.py-20 {
+padding-top: 2.5rem;
+padding-bottom: 2.5rem;
 }
-}
-
-/* METHOD BADGE IMPROVEMENTS */
-.method-badge {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-min-width: 4rem;
-transition: all 0.2s ease;
-}
-
-/* ICON ROTATION */
-.rotate-icon {
-transition: transform 0.3s ease;
-}
-.rotate-icon.rotated {
-transform: rotate(180deg);
 }
 </style>
 </head>
-<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white antialiased font-mono min-h-screen">
+<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white antialiased font-mono min-h-screen"> <!-- Changed background -->
 <div id="mouse-spotlight"></div>
 <div id="loader">
 <div class="spinner"></div>
 </div>
-<aside id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-gray-900 text-white border-l border-gray-700 transform translate-x-full duration-300 ease-in-out z-[100]">
-<div class="px-8 py-4 border-b border-gray-700 flex items-center justify-end">
-<button id="sidebarClose" class="py-2 px-3 border border-gray-600 text-white hover:border-gray-300 flex items-center justify-center rounded">
+<aside id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-gray-900 text-white border-l border-gray-700 transform translate-x-full duration-300 ease-in-out z-[100]"> <!-- Changed sidebar colors -->
+<div class="px-8 py-4 border-b border-gray-700 flex items-center justify-end"> <!-- Changed border color -->
+<button id="sidebarClose" class="py-2 px-3 border border-gray-600 text-white hover:border-gray-300 flex items-center justify-center"> <!-- Changed button colors -->
 <i class="material-icons text-xl">close</i>
 </button>
 </div>
 <div class="p-8">
 <nav>
 <div class="space-y-2">
-<a href="/" class="flex items-center py-2 px-4 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded transition-all">
+<a href="/" class="flex items-center py-2 px-4 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white"> <!-- Changed link colors -->
 <i class="material-icons text-lg mr-3">dashboard</i> Dashboard
 </a>
 </div>
 <p class="text-xs text-gray-400 my-4">LINKS.</p>
 <div class="space-y-2">
-<a href="https://wa.me/6288242449961" target="_blank" class="flex items-center py-2 px-4 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded transition-all">
+<a href="https://wa.me/6288242449961" target="_blank" class="flex items-center py-2 px-4 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white"> <!-- Changed link colors -->
 <i class="material-icons text-lg mr-3">arrow_outward</i> Contact
 </a>
-<a href="https://whatsapp.com/channel/0029Va4K0PZ5a245NkngBA2M" target="_blank" class="flex items-center py-2 px-4 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded transition-all">
+<a href="https://whatsapp.com/channel/0029Va4K0PZ5a245NkngBA2M" target="_blank" class="flex items-center py-2 px-4 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white"> <!-- Changed link colors -->
 <i class="material-icons text-lg mr-3">arrow_outward</i> Channel
 </a>
 </div>
 </nav>
 </div>
 </aside>
-<div id="overlay" class="fixed inset-0 bg-black bg-opacity-75 opacity-0 invisible duration-300 ease-in-out z-[90]"></div>
-<header class="glass sticky top-0 z-50 border-b border-gray-700">
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-75 opacity-0 invisible duration-300 ease-in-out z-[90]"></div> <!-- Changed overlay -->
+<header class="glass sticky top-0 z-50 border-b border-gray-700"> <!-- Changed header border -->
 <div class="max-w-2xl mx-auto px-8 py-4 flex items-center justify-between">
 <div class="flex gap-4 items-center">
 <div class="flex flex-col gap-1">
-<h2 class="text-lg text-white font-semibold leading-none">Dinzo API</h2>
-<p class="text-xs text-gray-400 leading-none">API Documentation</p>
+<h2 class="text-lg text-white font-semibold leading-none">Dinzo API</h2> <!-- Changed title and text color -->
+<p class="text-xs text-gray-400 leading-none">API Documentation</p> <!-- Changed text color -->
 </div>
-<div class="px-3 py-1.5 bg-white text-black text-xs font-semibold rounded">
+<div class="px-3 py-1.5 bg-white text-black text-xs font-semibold"> <!-- Changed version badge colors -->
 v1.0
 </div>
 </div>
-<button id="sidebarToggle" class="py-2 px-3 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 flex items-center justify-center rounded transition-all">
+<button id="sidebarToggle" class="py-2 px-3 text-sm border border-gray-600 text-gray-300 hover:border-gray-300 flex items-center justify-center"> <!-- Changed button colors -->
 <i class="material-icons text-xl">menu</i>
 </button>
 </div>
@@ -444,28 +371,27 @@ v1.0
 <!-- Notifications Panel -->
 <div class="mb-8">
 <div class="flex items-center justify-between mb-3">
-<h2 class="text-lg font-semibold text-white flex items-center">
-<span class="material-icons text-xl mr-2 text-gray-400">notifications</span>
+<h2 class="text-lg font-semibold text-white flex items-center"> <!-- Changed text color -->
+<span class="material-icons text-xl mr-2 text-gray-400">notifications</span> <!-- Changed icon color -->
 Informasi
 </h2>
-<span id="unread-count" class="text-xs bg-white text-black px-2 py-1 rounded hidden"></span>
+<span id="unread-count" class="text-xs bg-white text-black px-2 py-1 hidden"></span> <!-- Changed badge colors -->
 </div>
 <div id="notifications-list" class="space-y-2">
-<!-- Notifications will be loaded here -->
 </div>
 </div>
 <div class="flex items-center justify-between mb-4">
 <div class="flex-1 relative">
 <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-<span class="material-icons text-gray-400 text-lg">search</span>
+<span class="material-icons text-gray-400 text-lg">search</span> <!-- Changed search icon color -->
 </div>
-<input type="text" id="searchInput" placeholder="Search API endpoints..." class="w-full pl-12 pr-5 py-4 text-sm border border-gray-600 bg-gray-900 text-white placeholder-gray-500 focus:outline-none focus:border-gray-300 rounded transition-all">
+<input type="text" id="searchInput" placeholder="Search API endpoints..." class="w-full pl-12 pr-5 py-4 text-sm border border-gray-600 bg-gray-900 text-white placeholder-gray-500 focus:outline-none focus:border-gray-300"> <!-- Changed input colors -->
 </div>
 </div>
 <div id="content" class="space-y-4">
 <div id="noResults" class="text-center py-16" style="display: none;">
 <div class="max-w-md mx-auto">
-<h3 class="text-xs text-gray-400 mb-2">No result found.</h3>
+<h3 class="text-xs text-gray-400 mb-2">No result found.</h3> <!-- Changed text color -->
 </div>
 </div>
 <div id="apiList" class="space-y-3">
@@ -473,682 +399,830 @@ Informasi
 </div>
 </div>
 <div class="flex flex-col mt-6 text-center">
-<p class="text-gray-400 text-xs">© 2025 Dinzo API. | All Rights Reserved.</p>
+<p class="text-gray-400 text-xs">© 2025 Dinzo API. | All Rights Reserved.</p> <!-- Changed text color -->
 </div>
 </main>
 <script>
-// Hide loader after DOM loads
-document.addEventListener("DOMContentLoaded", function() {
-const loader = document.getElementById('loader');
-loader.classList.add('hidden');
-});
-
-// Sidebar functionality
-const sidebarToggle = document.getElementById('sidebarToggle');
-const sidebarClose = document.getElementById('sidebarClose');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
-
-function openSidebar() {
-sidebar.classList.remove('translate-x-full');
-overlay.classList.remove('opacity-0', 'invisible');
-document.body.classList.add('overflow-hidden');
+document.addEventListener('DOMContentLoaded', async () => {
+const DOM = {
+loadingScreen: document.getElementById("loader"), // Diubah dari "loadingScreen" ke "loader"
+body: document.body,
+sideNav: document.querySelector('.side-nav'),
+mainWrapper: document.querySelector('.main-wrapper'),
+navCollapseBtn: document.querySelector('.nav-collapse-btn'),
+menuToggle: document.querySelector('.menu-toggle'),
+themeToggle: document.getElementById('themeToggle'),
+searchInput: document.getElementById('searchInput'),
+clearSearchBtn: document.getElementById('clearSearch'),
+apiContent: document.getElementById('apiList'), // Diubah dari "apiContent" ke "apiList"
+notificationToast: document.getElementById('notificationToast'),
+notificationBell: document.getElementById('notificationBell'),
+notificationBadge: document.getElementById('notificationBadge'),
+modal: {
+instance: null,
+element: document.getElementById('apiResponseModal'),
+label: document.getElementById('apiResponseModalLabel'),
+desc: document.getElementById('apiResponseModalDesc'),
+content: document.getElementById('apiResponseContent'),
+container: document.getElementById('responseContainer'),
+endpoint: document.getElementById('apiEndpoint'),
+spinner: document.getElementById('apiResponseLoading'),
+queryInputContainer: document.getElementById('apiQueryInputContainer'),
+submitBtn: document.getElementById('submitQueryBtn'),
+copyEndpointBtn: document.getElementById('copyEndpoint'),
+copyResponseBtn: document.getElementById('copyResponse')
+},
+pageTitle: document.getElementById('page'),
+wm: document.getElementById('wm'),
+appName: document.getElementById('name'),
+sideNavName: document.getElementById('sideNavName'),
+versionBadge: document.getElementById('version'),
+versionHeaderBadge: document.getElementById('versionHeader'),
+appDescription: document.getElementById('description'),
+dynamicImage: document.getElementById('dynamicImage'),
+apiLinksContainer: document.getElementById('apiLinks')
+};
+let settings = {};
+let currentApiData = null;
+let allNotifications = [];
+const showToast = (message, type = 'info', title = 'Notifikasi') => {
+if (!DOM.notificationToast) return;
+const toastBody = DOM.notificationToast.querySelector('.toast-body');
+const toastTitleEl = DOM.notificationToast.querySelector('.toast-title');
+const toastIcon = DOM.notificationToast.querySelector('.toast-icon');
+toastBody.textContent = message;
+toastTitleEl.textContent = title;
+const typeConfig = {
+success: { color: 'var(--success-color)', icon: 'fa-check-circle' },
+error: { color: 'var(--error-color)', icon: 'fa-exclamation-circle' },
+info: { color: 'var(--primary-color)', icon: 'fa-info-circle' },
+notification: { color: 'var(--accent-color)', icon: 'fa-bell' }
+};
+const config = typeConfig[type] || typeConfig.info;
+DOM.notificationToast.style.borderLeftColor = config.color;
+toastIcon.className = `toast-icon fas ${config.icon} me-2`;
+toastIcon.style.color = config.color;
+let bsToast = bootstrap.Toast.getInstance(DOM.notificationToast);
+if (!bsToast) {
+bsToast = new bootstrap.Toast(DOM.notificationToast);
 }
-
-function closeSidebar() {
-sidebar.classList.add('translate-x-full');
-overlay.classList.add('opacity-0', 'invisible');
-document.body.classList.remove('overflow-hidden');
+bsToast.show();
+};
+const copyToClipboard = async (text, btnElement) => {
+if (!navigator.clipboard) {
+showToast('Browser tidak mendukung penyalinan ke clipboard.', 'error');
+return;
 }
-
-sidebarToggle.addEventListener('click', openSidebar);
-sidebarClose.addEventListener('click', closeSidebar);
-overlay.addEventListener('click', closeSidebar);
-
-document.addEventListener('keydown', function(e) {
-if (e.key === 'Escape') {
-closeSidebar();
-}
-});
-
-// Copy to clipboard function
-async function copyToClipboard(text, buttonElement) {
-if (!buttonElement) return;
-const originalHTML = buttonElement.innerHTML;
 try {
 await navigator.clipboard.writeText(text);
-buttonElement.textContent = 'Copied!';
+const originalIcon = btnElement.innerHTML;
+btnElement.innerHTML = '<i class="fas fa-check"></i>';
+btnElement.classList.add('copy-success');
+showToast('Berhasil disalin ke clipboard!', 'success');
 setTimeout(() => {
-buttonElement.innerHTML = originalHTML;
+btnElement.innerHTML = originalIcon;
+btnElement.classList.remove('copy-success');
 }, 1500);
-} catch (e) {
-console.error('Copy failed', e);
-buttonElement.textContent = 'Failed!';
-setTimeout(() => {
-buttonElement.innerHTML = originalHTML;
-}, 1500);
-}
-}
-
-// Highlight JSON function
-function hlJSON(el) {
-if (window.hljs) {
-hljs.highlightElement(el);
-}
-}
-
-// Toggle category with smooth animation
-function toggleCategory(index) {
-const category = document.getElementById(`category-${index}`);
-const icon = document.getElementById(`category-icon-${index}`);
-
-category.classList.toggle('expanded');
-icon.classList.toggle('rotated');
-}
-
-// Toggle endpoint with smooth animation
-function toggleEndpoint(catIndex, endpointIndex) {
-const endpoint = document.getElementById(`endpoint-${catIndex}-${endpointIndex}`);
-const icon = document.getElementById(`endpoint-icon-${catIndex}-${endpointIndex}`);
-    
-endpoint.classList.toggle('expanded');
-icon.classList.toggle('rotated');
-}
-
-// Execute request function
-async function executeRequest(event, catIndex, endpointIndex, method, path) {
-event.preventDefault();
-const form = document.getElementById(`form-${catIndex}-${endpointIndex}`);
-const responseDiv = document.getElementById(`response-${catIndex}-${endpointIndex}`);
-const responseContent = document.getElementById(`response-content-${catIndex}-${endpointIndex}`);
-const clearButton = document.getElementById(`clear-${catIndex}-${endpointIndex}`);
-    
-// Show response div with smooth transition
-if (!responseDiv.classList.contains('expanded')) {
-responseDiv.classList.add('expanded');
-}
-
-const formData = new FormData(form);
-const fetchOptions = {
-method: method.toUpperCase()
-};
-let fullPath = path;
-let curlCommand = `curl -X ${fetchOptions.method} "${window.location.origin}${path}"`;
-
-if (fetchOptions.method === 'POST' || fetchOptions.method === 'PUT' || fetchOptions.method === 'PATCH') {
-fetchOptions.body = formData;
-for (const [key, value] of formData.entries()) {
-if (value instanceof File && value.name) {
-curlCommand += ` -F "${key}=@${value.name}"`;
-} else if (typeof value === 'string') {
-curlCommand += ` -F "${key}=${value}"`;
-}
-}
-} else {
-const params = new URLSearchParams();
-for (const [key, value] of formData.entries()) {
-if (typeof value === 'string' && value) {
-params.append(key, value);
-}
-}
-const queryString = params.toString();
-if (queryString) {
-fullPath += (path.includes('?') ? '&' : '?') + queryString;
-}
-curlCommand = `curl -X ${fetchOptions.method} "${window.location.origin}${fullPath}"`;
-}
-
-const escapedFullPath = fullPath.replace(/"/g, '&quot;').replace(/'/g, "'");
-const escapedCurlCommand = curlCommand.replace(/"/g, '&quot;').replace(/'/g, "'");
-
-responseContent.innerHTML = `
-<div class="space-y-4">
-<div>
-<h4 class="block-title">
-<span><span class="material-icons text-sm mr-2 align-middle">link</span>REQUEST URL</span>
-<button onclick="copyToClipboard('${window.location.origin}${escapedFullPath}', this)" class="copy-btn"><span class="material-icons text-base align-middle">content_copy</span></button>
-</h4>
-<pre class="bg-gray-900 text-white p-3 text-xs overflow-auto rounded"><code>${window.location.origin}${fullPath}</code></pre>
-</div>
-<div>
-<h4 class="block-title">
-<span><span class="material-icons text-sm mr-2 align-middle">terminal</span>CURL COMMAND</span>
-<button onclick="copyToClipboard(this.parentElement.nextElementSibling.innerText, this)" class="copy-btn"><span class="material-icons text-base align-middle">content_copy</span></button>
-</h4>
-<pre class="bg-gray-900 text-white p-3 text-xs overflow-auto rounded"><code>${curlCommand}</code></pre>
-</div>
-<div>
-<h4 class="block-title">
-<span><span class="material-icons text-sm mr-2 align-middle">storage</span>SERVER RESPONSE</span>
-<button onclick="copyToClipboard(document.getElementById('response-body-${catIndex}-${endpointIndex}').innerText, this)" class="copy-btn"><span class="material-icons text-base align-middle">content_copy</span></button>
-</h4>
-<div id="response-body-${catIndex}-${endpointIndex}" class="bg-gray-900 text-white p-3 text-xs rounded">
-Loading...
-</div>
-</div>
-</div>
-`;
-
-const responseBodyDiv = document.getElementById(`response-body-${catIndex}-${endpointIndex}`);
-
-try {
-const response = await fetch(fullPath, fetchOptions);
-const contentType = response.headers.get('content-type') || '';
-let responseBodyContent = '';
-
-if (!response.ok) {
-const errText = await response.text().catch(() => '');
-throw new Error(`${response.status} ${response.statusText}<br>${errText}`);
-}
-
-if (contentType.includes('application/json')) {
-const data = await response.json();
-responseBodyContent = `<pre class="max-h-80 overflow-auto"><code class="language-json">${JSON.stringify(data, null, 2)}</code></pre>`;
-setTimeout(() => hlJSON(responseBodyDiv.querySelector('code')), 0);
-} else if (contentType.startsWith('image/')) {
-const blob = await response.blob();
-const imageUrl = URL.createObjectURL(blob);
-responseBodyContent = `<img src="${imageUrl}" class="max-w-full h-auto rounded-md">`;
-} else {
-const text = await response.text();
-responseBodyContent = `<pre class="max-h-80 overflow-auto">${text}</pre>`;
-}
-
-responseBodyDiv.innerHTML = responseBodyContent;
 } catch (err) {
-let errMessage = String(err);
-if (err.message && err.message.startsWith('404')) {
-errMessage = `Error 404: Not Found.<br>Endpoint tidak ditemukan. Pastikan URL dan parameter sudah benar.`;
+showToast('Gagal menyalin teks: ' + err.message, 'error');
 }
-responseBodyDiv.innerHTML = `<pre class="text-red-400 max-h-80 overflow-auto">${errMessage}</pre>`;
+};
+const debounce = (func, delay) => {
+let timeout;
+return (...args) => {
+clearTimeout(timeout);
+timeout = setTimeout(() => func.apply(this, args), delay);
+};
+};
+const loadNotifications = async () => {
+try {
+const response = await fetch('/notifications.json');
+if (!response.ok) throw new Error(`Gagal memuat notifikasi: ${response.status}`);
+allNotifications = await response.json();
+updateNotificationBadge();
+} catch (error) {
+console.error('Error loading notifications:', error);
 }
-
-clearButton.classList.remove('hidden');
+};
+const getSessionReadNotificationIds = () => {
+const ids = sessionStorage.getItem('sessionReadNotificationIds');
+return ids ? JSON.parse(ids) : [];
+};
+const addSessionReadNotificationId = (id) => {
+let ids = getSessionReadNotificationIds();
+if (!ids.includes(id)) {
+ids.push(id);
+sessionStorage.setItem('sessionReadNotificationIds', JSON.stringify(ids));
 }
-
-// Clear response function
-function clearResponse(catIndex, endpointIndex) {
-const responseDiv = document.getElementById(`response-${catIndex}-${endpointIndex}`);
-const responseContent = document.getElementById(`response-content-${catIndex}-${endpointIndex}`);
-const clearButton = document.getElementById(`clear-${catIndex}-${endpointIndex}`);
-    
-responseDiv.classList.add('fade-out');
-clearButton.classList.add('hidden');
-    
-setTimeout(() => {
-responseContent.innerHTML = '';
-responseDiv.classList.remove('expanded', 'fade-out');
-}, 200);
+};
+const updateNotificationBadge = () => {
+if (!DOM.notificationBadge || !allNotifications.length) {
+if(DOM.notificationBadge) DOM.notificationBadge.classList.remove('active');
+return;
 }
-
-// Load and render APIs from OpenAPI spec
-async function loadApis() {
-const apiList = document.getElementById('apiList');
-    
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const sessionReadIds = getSessionReadNotificationIds();
+const unreadNotifications = allNotifications.filter(notif => {
+const notificationDate = new Date(notif.date);
+notificationDate.setHours(0, 0, 0, 0);
+return !notif.read && notificationDate <= today && !sessionReadIds.includes(notif.id);
+});
+if (unreadNotifications.length > 0) {
+DOM.notificationBadge.classList.add('active');
+DOM.notificationBell.setAttribute('aria-label', `Notifikasi (${unreadNotifications.length} belum dibaca)`);
+} else {
+DOM.notificationBadge.classList.remove('active');
+DOM.notificationBell.setAttribute('aria-label', 'Tidak ada notifikasi baru');
+}
+};
+const handleNotificationBellClick = () => {
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const sessionReadIds = getSessionReadNotificationIds();
+const notificationsToShow = allNotifications.filter(notif => {
+const notificationDate = new Date(notif.date);
+notificationDate.setHours(0, 0, 0, 0);
+return !notif.read && notificationDate <= today && !sessionReadIds.includes(notif.id);
+});
+if (notificationsToShow.length > 0) {
+notificationsToShow.forEach(notif => {
+showToast(notif.message, 'notification', `Notifikasi (${new Date(notif.date).toLocaleDateString('id-ID')})`);
+addSessionReadNotificationId(notif.id);
+});
+} else {
+showToast('Tidak ada notifikasi baru saat ini.', 'info');
+}
+updateNotificationBadge();
+};
+const init = async () => {
+setupEventListeners();
+initTheme();
+initSideNav();
+initModal();
+await loadNotifications();
 try {
 const response = await fetch('/src/openapi.json');
-const data = await response.json();
-
-// Group endpoints by tags
-const categories = {};
-if (data.tags) {
-data.tags.forEach(tag => {
-categories[tag.name] = {
-name: tag.name,
-items: []
-};
-});
-}
-
-Object.keys(data.paths).forEach(path => {
-const pathItem = data.paths[path];
-Object.keys(pathItem).forEach(method => {
-const endpoint = pathItem[method];
-const tagName = endpoint.tags && endpoint.tags.length > 0 ? endpoint.tags[0] : 'Uncategorized';
-
-if (!categories[tagName]) {
-categories[tagName] = {
-name: tagName,
-items: []
-};
-}
-
-categories[tagName].items.push({
-path: path,
-method: method.toUpperCase(),
-name: endpoint.summary || 'No summary',
-desc: endpoint.description || 'No description',
-status: endpoint.deprecated ? 'deprecated' : 'ready',
-parameters: endpoint.parameters,
-requestBody: endpoint.requestBody
-});
-});
-});
-
-let html = '';
-Object.values(categories).forEach((category, catIndex) => {
-if (category.items.length === 0) return;
-
-html += `
-<div class="category-group" data-category="${category.name}">
-<div class="mb-2">
-<div class="bg-gray-900 border border-gray-600 category-card">
-<button onclick="toggleCategory(${catIndex})" class="w-full px-4 py-3 text-left flex items-center justify-between transition-colors duration-150">
-<h2 class="font-bold flex items-center text-white">
-<span class="material-icons text-xl mr-4 text-black bg-white py-1 px-2 rounded">folder</span>
-<span class="truncate max-w-xs text-sm text-white">${category.name}</span>
-<span class="ml-2 text-xs text-gray-400">(${category.items.length})</span>
-</h2>
-<span class="material-icons text-white rotate-icon" id="category-icon-${catIndex}">expand_more</span>
-</button>
-<div id="category-${catIndex}" class="smooth-toggle">`;
-
-category.items.forEach((item, endpointIndex) => {
-const method = item.method;
-const path = item.path;
-const statusClasses = {
-'ready': 'bg-green-500 text-white',
-'deprecated': 'bg-yellow-500 text-black',
-};
-const statusClass = statusClasses[item.status] || 'bg-gray-600 text-white';
-const methodClasses = {
-'GET': 'bg-green-600',
-'POST': 'bg-blue-600',
-'PUT': 'bg-yellow-600',
-'DELETE': 'bg-red-600'
-};
-const methodClass = methodClasses[method] || 'bg-gray-600';
-
-html += `
-<div id="${item.path.split('/').pop()}" class="border-t border-gray-600 api-item"
-data-method="${method}"
-data-path="${path}"
-data-alias="${item.name}"
-data-description="${item.desc}"
-data-category="${category.name}">
-<button onclick="toggleEndpoint(${catIndex}, ${endpointIndex})" class="w-full px-4 py-3 text-left flex items-center justify-between endpoint-card">
-<div class="flex items-center min-w-0 flex-1 gap-3">
-<span class="method-badge px-3 py-1.5 text-xs font-bold text-white rounded ${methodClass}">
-${method}
-</span>
-<div class="flex flex-col min-w-0 flex-1">
-<span class="font-semibold truncate font-mono text-sm text-white" title="${path}">${path}</span>
-<div class="flex items-center gap-2 mt-1">
-<span class="text-xs text-gray-300 truncate" title="${item.name}">${item.name}</span>
-<span class="px-2 py-0.5 text-xs rounded ${statusClass}">${item.status}</span>
-</div>
-</div>
-</div>
-<span class="material-icons text-white rotate-icon flex-shrink-0" id="endpoint-icon-${catIndex}-${endpointIndex}">expand_more</span>
-</button>
-<div id="endpoint-${catIndex}-${endpointIndex}" class="smooth-toggle bg-gray-800 p-4 border-t border-gray-600 space-y-4">
-<div class="mb-3">
-<div class="text-gray-300 text-xs">${item.desc}</div>
-</div>
-`;
-
-if (item.status !== 'deprecated') {
-html += `
-<div>
-<div class="text-gray-200 font-bold text-xs mb-3 flex items-center">
-<span class="material-icons text-sm mr-1">play_arrow</span>
-TRY IT OUT
-</div>
-<div>
-<form id="form-${catIndex}-${endpointIndex}" onsubmit="executeRequest(event, ${catIndex}, ${endpointIndex}, '${method}', '${path}')">
-<div class="mb-4 space-y-3">`;
-
-// Query parameters
-if (item.parameters) {
-item.parameters.forEach(param => {
-const schema = param.schema || {};
-const isReq = !!param.required;
-const label = `${param.name} ${isReq ? '<span class="text-red-500">*</span>' : ''}`;
-const desc = param.description ? `<div class="text-[10px] text-gray-400 mt-1">${param.description}</div>` : '';
-const placeholder = (schema.example ?? schema.default ?? '') + '';
-
-if (Array.isArray(schema.enum) && schema.enum.length) {
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">${label}</label>
-<select name="${param.name}" class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white rounded" ${isReq ? 'required' : ''}>
-${schema.enum.map(v => `<option value="${String(v)}">${String(v)}</option>`).join('')}
-</select>
-${desc}
-</div>`;
-} else {
-let type = 'text';
-if (schema.type === 'number' || schema.type === 'integer') type = 'number';
-if (schema.type === 'boolean') {
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">${label}</label>
-<select name="${param.name}" class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white rounded" ${isReq ? 'required' : ''}>
-<option value="true">true</option>
-<option value="false">false</option>
-</select>
-${desc}
-</div>`;
-} else {
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">${label}</label>
-<input type="${type}" name="${param.name}"
-class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white placeholder:text-gray-500 rounded"
-placeholder="${placeholder.replace(/"/g,'&quot;')}" ${isReq ? 'required' : ''}>
-${desc}
-</div>`;
-}
-}
-});
-}
-
-// Request body
-if (item.requestBody && item.requestBody.content) {
-const content = item.requestBody.content;
-
-if (content['multipart/form-data']) {
-const schema = content['multipart/form-data'].schema || { properties: {} };
-const required = schema.required || [];
-
-Object.keys(schema.properties || {}).forEach(propName => {
-const prop = schema.properties[propName] || {};
-const isRequired = required.includes(propName);
-const label = `${propName} ${isRequired ? '<span class="text-red-500">*</span>' : ''}`;
-const desc = prop.description ? `<div class="text-[10px] text-gray-400 mt-1">${prop.description}</div>` : '';
-const placeholder = (prop.example ?? prop.default ?? '') + '';
-const isFile = prop.format === 'binary';
-
-if (isFile) {
-let accept = '';
-const propDesc = (prop.description || '').toLowerCase();
-if (propName.toLowerCase().includes('image') || propDesc.includes('gambar')) {
-accept = 'accept="image/*"';
-} else if (propName.toLowerCase().includes('video') || propDesc.includes('vidio')) {
-accept = 'accept="video/*"';
-}
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">${label}</label>
-<input type="file" name="${propName}" ${accept}
-class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white rounded file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-gray-700 file:text-white hover:file:bg-gray-600"
-${isRequired ? 'required' : ''}>
-${desc}
-</div>`;
-} else if (Array.isArray(prop.enum) && prop.enum.length) {
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">${label}</label>
-<select name="${propName}" class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white rounded" ${isRequired ? 'required' : ''}>
-${prop.enum.map(v => `<option value="${String(v)}">${String(v)}</option>`).join('')}
-</select>
-${desc}
-</div>`;
-} else if (prop.type === 'boolean') {
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">${label}</label>
-<select name="${propName}" class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white rounded" ${isRequired ? 'required' : ''}>
-<option value="true">true</option>
-<option value="false">false</option>
-</select>
-${desc}
-</div>`;
-} else {
-let inputType = 'text';
-if (prop.type === 'number' || prop.type === 'integer') {
-inputType = 'number';
-}
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">${label}</label>
-<input type="${inputType}" name="${propName}"
-class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white placeholder:text-gray-500 rounded"
-placeholder="${placeholder.replace(/"/g, '&quot;')}" ${isRequired ? 'required' : ''}>
-${desc}
-</div>`;
-}
-});
-}
-
-if (content['application/json']) {
-html += `
-<div>
-<label class="block text-xs font-medium text-gray-300 mb-2">Body (application/json)</label>
-<textarea name="__raw_json__" rows="6" class="w-full px-3 py-2 border border-gray-600 text-sm focus:outline-none focus:border-gray-300 bg-gray-800 text-white font-mono placeholder:text-gray-500 rounded" placeholder='{"key":"value"}'></textarea>
-<div class="text-[10px] text-gray-400 mt-1">Masukkan JSON valid. Jika diisi, body lain akan diabaikan.</div>
-</div>`;
-}
-}
-
-html += `
-</div>
-<div class="button-group">
-<button type="submit" class="execute-button font-semibold px-6 py-2.5 text-sm">
-<span class="flex items-center gap-2">
-<span class="material-icons text-sm">play_arrow</span>
-Execute
-</span>
-</button>
-<button type="button" id="clear-${catIndex}-${endpointIndex}" onclick="clearResponse(${catIndex}, ${endpointIndex})" class="hidden clear-button bg-white border border-gray-200 hover:border-gray-600 font-semibold text-black px-6 py-2.5 text-sm">
-<span class="flex items-center gap-2">
-<span class="material-icons text-sm">clear</span>
-Clear
-</span>
-</button>
-</div>
-</form>
-</div>
-</div>`;
-} else {
-html += `<div class="text-yellow-400 text-xs p-3 bg-yellow-500/20 border border-yellow-500/30 rounded">Endpoint ini tidak digunakan lagi.</div>`;
-}
-
-html += `
-<div id="response-${catIndex}-${endpointIndex}" class="smooth-toggle mt-4">
-<div class="text-gray-200 font-bold text-xs mb-3 flex items-center">
-<span class="material-icons text-sm mr-1">code</span>
-RESPONSE
-</div>
-<div id="response-content-${catIndex}-${endpointIndex}" class="bg-gray-800 text-xs p-4 border border-gray-600 rounded">
-<!-- Response will be rendered here -->
-</div>
-</div>
-
-<div class="mt-4">
-<div class="text-gray-200 font-bold text-xs mb-3 flex items-center">
-<span class="material-icons text-sm mr-1">list</span>
-HTTP STATUS CODES
-</div>
-<div class="bg-gray-900 border border-gray-600 rounded overflow-hidden">
-<div class="overflow-x-auto">
-<table class="w-full text-xs">
-<thead class="bg-gray-800 border-b border-gray-600">
-<tr>
-<th class="px-4 py-2 text-left font-semibold text-gray-300">Code</th>
-<th class="px-4 py-2 text-left font-semibold text-gray-300">Description</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-gray-600">
-<tr class="hover:bg-gray-700 transition-colors">
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<span class="material-icons text-green-500 text-sm">check_circle</span>
-<span class="font-mono font-semibold text-green-500">200</span>
-</div>
-</td>
-<td class="px-4 py-2 text-gray-300">OK - Request successful</td>
-</tr>
-<tr class="hover:bg-gray-700 transition-colors">
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<span class="material-icons text-red-500 text-sm">error</span>
-<span class="font-mono font-semibold text-red-500">400</span>
-</div>
-</td>
-<td class="px-4 py-2 text-gray-300">Bad Request - Invalid parameters</td>
-</tr>
-<tr class="hover:bg-gray-700 transition-colors">
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<span class="material-icons text-red-500 text-sm">error</span>
-<span class="font-mono font-semibold text-red-500">401</span>
-</div>
-</td>
-<td class="px-4 py-2 text-gray-300">Unauthorized - Invalid API key</td>
-</tr>
-<tr class="hover:bg-gray-700 transition-colors">
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<span class="material-icons text-red-500 text-sm">error</span>
-<span class="font-mono font-semibold text-red-500">404</span>
-</div>
-</td>
-<td class="px-4 py-2 text-gray-300">Not Found - Resource not found</td>
-</tr>
-<tr class="hover:bg-gray-700 transition-colors">
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<span class="material-icons text-orange-500 text-sm">warning</span>
-<span class="font-mono font-semibold text-orange-500">429</span>
-</div>
-</td>
-<td class="px-4 py-2 text-gray-300">Too Many Requests - Rate limit exceeded</td>
-</tr>
-<tr class="hover:bg-gray-700 transition-colors">
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<span class="material-icons text-red-500 text-sm">error</span>
-<span class="font-mono font-semibold text-red-500">500</span>
-</div>
-</td>
-<td class="px-4 py-2 text-gray-300">Internal Server Error</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-`;
-});
-
-html += `</div></div></div>`;
-});
-
-apiList.innerHTML = html;
-
-const categories = apiList.querySelectorAll('.category-group');
-categories.forEach((category, index) => {
-category.classList.add('will-fade-in', 'fade-in');
-category.style.animationDelay = `${index * 70}ms`;
-});
+if (!response.ok) throw new Error(`Gagal memuat pengaturan: ${response.status}`);
+settings = await response.json();
+populatePageContent();
+renderApiCategories();
+observeApiItems();
 } catch (error) {
-apiList.innerHTML = '<p class="text-red-500">Failed to load API data.</p>';
-console.error('Error loading API data:', error);
+console.error('Error loading settings:', error);
+showToast(`Gagal memuat pengaturan: ${error.message}`, 'error');
+displayErrorState("Tidak dapat memuat konfigurasi API.");
+} finally {
+hideLoadingScreen();
 }
-}
-
-// Load and render notifications
-async function loadNotifications() {
-const notificationsList = document.getElementById('notifications-list');
-const unreadCountBadge = document.getElementById('unread-count');
-
-try {
-const response = await fetch(`/src/notifications.json?t=${Date.now()}`);
-let notifications = await response.json();
-
-if (!Array.isArray(notifications)) {
-notifications = notifications ? [notifications] : [];
-}
-
-notificationsList.innerHTML = '';
-let unreadCount = 0;
-
-notifications.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-
-if (notifications.length === 0) {
-notificationsList.innerHTML = '<p class="text-center text-gray-500 text-xs py-4">Tidak ada notifikasi</p>';
+};
+const setupEventListeners = () => {
+if (DOM.navCollapseBtn) DOM.navCollapseBtn.addEventListener('click', toggleSideNavCollapse);
+if (DOM.menuToggle) DOM.menuToggle.addEventListener('click', toggleSideNavMobile);
+if (DOM.themeToggle) DOM.themeToggle.addEventListener('change', handleThemeToggle);
+if (DOM.searchInput) DOM.searchInput.addEventListener('input', debounce(handleSearch, 300));
+if (DOM.clearSearchBtn) DOM.clearSearchBtn.addEventListener('click', clearSearch);
+if (DOM.notificationBell) DOM.notificationBell.addEventListener('click', handleNotificationBellClick);
+if (DOM.apiContent) DOM.apiContent.addEventListener('click', handleApiGetButtonClick);
+if (DOM.modal.copyEndpointBtn) DOM.modal.copyEndpointBtn.addEventListener('click', () => copyToClipboard(DOM.modal.endpoint.textContent, DOM.modal.copyEndpointBtn));
+if (DOM.modal.copyResponseBtn) DOM.modal.copyResponseBtn.addEventListener('click', () => copyToClipboard(DOM.modal.content.textContent, DOM.modal.copyResponseBtn));
+if (DOM.modal.submitBtn) DOM.modal.submitBtn.addEventListener('click', handleSubmitQuery);
+window.addEventListener('scroll', handleScroll);
+document.addEventListener('click', closeSideNavOnClickOutside);
+};
+const hideLoadingScreen = () => {
+if (!DOM.loadingScreen) return;
+const loadingDots = DOM.loadingScreen.querySelector(".loading-dots");
+if (loadingDots && loadingDots.intervalId) clearInterval(loadingDots.intervalId);
+DOM.loadingScreen.classList.add('fade-out');
+setTimeout(() => {
+DOM.loadingScreen.style.display = "none";
+DOM.body.classList.remove("no-scroll");
+}, 500);
+};
+const animateLoadingDots = () => {
+const loadingDots = DOM.loadingScreen.querySelector(".loading-dots");
+if (loadingDots) {
+loadingDots.intervalId = setInterval(() => {
+if (loadingDots.textContent.length >= 3) {
+loadingDots.textContent = '.';
 } else {
-notifications.forEach((notif, index) => {
-if (!notif.read) unreadCount++;
-
-const notifElement = document.createElement('div');
-notifElement.className = `notification-item bg-gray-900 border border-gray-600 p-4 text-xs will-fade-in fade-in ${notif.read ? 'opacity-60' : ''}`;
-notifElement.style.animationDelay = `${index * 50}ms`;
-notifElement.innerHTML = `
-<div class="flex justify-between items-start gap-3">
-<div class="flex-1 min-w-0">
-<p class="font-bold text-white mb-1">${notif.title || 'Tanpa Judul'}</p>
-<p class="text-gray-300">${notif.message || '-'}</p>
-</div>
-<div class="flex items-center flex-shrink-0 gap-2">
-${!notif.read ? '<div class="w-2 h-2 bg-green-400 rounded-full" title="Unread"></div>' : ''}
-<span class="text-gray-500 text-[10px]">${notif.date ? new Date(notif.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' }) : '-'}</span>
-</div>
-</div>
-`;
-notificationsList.appendChild(notifElement);
+loadingDots.textContent += '.';
+}
+}, 500);
+}
+};
+animateLoadingDots();
+const initTheme = () => {
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('darkMode');
+if (savedTheme === 'true' || (savedTheme === null && prefersDark)) {
+DOM.body.classList.add('dark-mode');
+if (DOM.themeToggle) DOM.themeToggle.checked = true;
+}
+};
+const handleThemeToggle = () => {
+DOM.body.classList.toggle('dark-mode');
+const isDarkMode = DOM.body.classList.contains('dark-mode');
+localStorage.setItem('darkMode', isDarkMode);
+showToast(`Beralih ke mode ${isDarkMode ? 'gelap' : 'terang'}`, 'success');
+};
+const initSideNav = () => {
+if (DOM.sideNav && DOM.navCollapseBtn) {
+const isCollapsed = DOM.sideNav.classList.contains('collapsed');
+DOM.navCollapseBtn.setAttribute('aria-expanded', !isCollapsed);
+}
+};
+const toggleSideNavCollapse = () => {
+if (!DOM.sideNav || !DOM.mainWrapper || !DOM.navCollapseBtn) return;
+DOM.sideNav.classList.toggle('collapsed');
+DOM.mainWrapper.classList.toggle('nav-collapsed');
+const isExpanded = !DOM.sideNav.classList.contains('collapsed');
+DOM.navCollapseBtn.setAttribute('aria-expanded', isExpanded);
+};
+const toggleSideNavMobile = () => {
+if (!DOM.sideNav || !DOM.menuToggle) return;
+DOM.sideNav.classList.toggle('active');
+const isActive = DOM.sideNav.classList.contains('active');
+DOM.menuToggle.setAttribute('aria-expanded', isActive);
+};
+const closeSideNavOnClickOutside = (e) => {
+if (!DOM.sideNav || !DOM.menuToggle) return;
+if (window.innerWidth < 992 &&
+!DOM.sideNav.contains(e.target) &&
+!DOM.menuToggle.contains(e.target) &&
+DOM.sideNav.classList.contains('active')) {
+DOM.sideNav.classList.remove('active');
+DOM.menuToggle.setAttribute('aria-expanded', 'false');
+}
+};
+const handleScroll = () => {
+const scrollPosition = window.scrollY;
+const headerElement = document.querySelector('.main-header');
+const headerHeight = headerElement ? parseInt(getComputedStyle(headerElement).height) : 70;
+document.querySelectorAll('section[id]').forEach(section => {
+const sectionTop = section.offsetTop - headerHeight - 20;
+const sectionHeight = section.offsetHeight;
+const sectionId = section.getAttribute('id');
+const navLink = document.querySelector(`.side-nav-link[href="#${sectionId}"]`);
+if (navLink) {
+if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+document.querySelectorAll('.side-nav-link.active').forEach(l => {
+l.classList.remove('active');
+l.removeAttribute('aria-current');
+});
+navLink.classList.add('active');
+navLink.setAttribute('aria-current', 'page');
+}
+}
+});
+};
+const initModal = () => {
+if (DOM.modal.element) {
+DOM.modal.instance = new bootstrap.Modal(DOM.modal.element);
+}
+};
+const setPageContent = (element, value, fallback = '') => {
+if (element) element.textContent = value || fallback;
+};
+const setPageAttribute = (element, attribute, value, fallback = '') => {
+if (element) element.setAttribute(attribute, value || fallback);
+};
+const populatePageContent = () => {
+if (!settings || Object.keys(settings).length === 0) return;
+const currentYear = new Date().getFullYear();
+const creator = settings.apiSettings?.creator || 'FlowFalcon';
+setPageContent(DOM.pageTitle, settings.name, "Falcon API");
+setPageContent(DOM.wm, `© ${currentYear} ${creator}. Semua hak dilindungi.`);
+setPageContent(DOM.appName, settings.name, "Falcon API");
+setPageContent(DOM.sideNavName, settings.name || "API");
+setPageContent(DOM.versionBadge, settings.version, "v1.0");
+setPageContent(DOM.versionHeaderBadge, settings.header?.status, "Aktif!");
+setPageContent(DOM.appDescription, settings.description, "Dokumentasi API simpel dan mudah digunakan.");
+if (DOM.dynamicImage) {
+if (settings.bannerImage) {
+DOM.dynamicImage.src = settings.bannerImage;
+DOM.dynamicImage.alt = settings.name ? `${settings.name} Banner` : "API Banner";
+DOM.dynamicImage.style.display = '';
+} else {
+DOM.dynamicImage.src = '/src/banner.jpg';
+DOM.dynamicImage.alt = "API Banner Default";
+DOM.dynamicImage.style.display = '';
+}
+DOM.dynamicImage.onerror = () => {
+DOM.dynamicImage.src = '/src/banner.jpg';
+DOM.dynamicImage.alt = "API Banner Fallback";
+DOM.dynamicImage.style.display = '';
+showToast('Gagal memuat gambar banner, menggunakan gambar default.', 'warning');
+};
+}
+if (DOM.apiLinksContainer) {
+DOM.apiLinksContainer.innerHTML = '';
+const defaultLinks = [{ url: "https://github.com/FlowFalcon/Falcon-Api-UI", name: "Lihat di GitHub", icon: "fab fa-github" }];
+const linksToRender = settings.links?.length ? settings.links : defaultLinks;
+linksToRender.forEach(({ url, name, icon }, index) => {
+const link = document.createElement('a');
+link.href = url;
+link.target = '_blank';
+link.rel = 'noopener noreferrer';
+link.className = 'api-link btn btn-primary';
+link.style.animationDelay = `${index * 0.1}s`;
+link.setAttribute('aria-label', name);
+const iconElement = document.createElement('i');
+iconElement.className = icon || 'fas fa-external-link-alt';
+iconElement.setAttribute('aria-hidden', 'true');
+link.appendChild(iconElement);
+link.appendChild(document.createTextNode(` ${name}`));
+DOM.apiLinksContainer.appendChild(link);
 });
 }
-
-if (unreadCount > 0) {
-unreadCountBadge.textContent = unreadCount;
-unreadCountBadge.classList.remove('hidden');
-} else {
-unreadCountBadge.classList.add('hidden');
+};
+const renderApiCategories = () => {
+if (!DOM.apiContent || !settings.categories || !settings.categories.length) {
+displayErrorState("Tidak ada kategori API yang ditemukan.");
+return;
 }
-} catch (error) {
-console.error('Gagal memuat notifikasi:', error);
-notificationsList.innerHTML = '<p class="text-center text-red-500 text-xs py-4">Gagal memuat notifikasi</p>';
-unreadCountBadge.classList.add('hidden');
+DOM.apiContent.innerHTML = '';
+settings.categories.forEach((category, categoryIndex) => {
+const sortedItems = category.items.sort((a, b) => a.name.localeCompare(b.name));
+const categorySection = document.createElement('section');
+categorySection.id = `category-${category.name.toLowerCase().replace(/\s+/g, '-')}`;
+categorySection.className = 'category-section';
+categorySection.style.animationDelay = `${categoryIndex * 0.15}s`;
+categorySection.setAttribute('aria-labelledby', `category-title-${categoryIndex}`);
+const categoryHeader = document.createElement('h3');
+categoryHeader.id = `category-title-${categoryIndex}`;
+categoryHeader.className = 'category-header';
+if (category.icon) {
+const iconEl = document.createElement('i');
+iconEl.className = `${category.icon} me-2`;
+iconEl.setAttribute('aria-hidden', 'true');
+categoryHeader.appendChild(iconEl);
 }
+categoryHeader.appendChild(document.createTextNode(category.name));
+categorySection.appendChild(categoryHeader);
+if (category.image) {
+const img = document.createElement('img');
+img.src = category.image;
+img.alt = `${category.name} banner`;
+img.className = 'category-image img-fluid rounded mb-3 shadow-sm';
+img.loading = 'lazy';
+categorySection.appendChild(img);
 }
-
-// Search functionality
-document.getElementById('searchInput').addEventListener('input', function() {
-const searchTerm = this.value.toLowerCase();
-const apiItems = document.querySelectorAll('.api-item');
-const categories = document.querySelectorAll('.category-group');
-const noResults = document.getElementById('noResults');
-let visibleCount = 0;
-
+const itemsRow = document.createElement('div');
+itemsRow.className = 'row';
+sortedItems.forEach((item, itemIndex) => {
+const itemCol = document.createElement('div');
+itemCol.className = 'col-12 col-md-6 col-lg-4 api-item';
+itemCol.dataset.name = item.name;
+itemCol.dataset.desc = item.desc;
+itemCol.dataset.category = category.name;
+itemCol.style.animationDelay = `${itemIndex * 0.05 + 0.2}s`;
+const apiCard = document.createElement('article');
+apiCard.className = 'api-card h-100';
+apiCard.setAttribute('aria-labelledby', `api-title-${categoryIndex}-${itemIndex}`);
+const cardInfo = document.createElement('div');
+cardInfo.className = 'api-card-info';
+const itemTitle = document.createElement('h5');
+itemTitle.id = `api-title-${categoryIndex}-${itemIndex}`;
+itemTitle.className = 'mb-1';
+itemTitle.textContent = item.name;
+const itemDesc = document.createElement('p');
+itemDesc.className = 'text-muted mb-0';
+itemDesc.textContent = item.desc;
+cardInfo.appendChild(itemTitle);
+cardInfo.appendChild(itemDesc);
+const actionsDiv = document.createElement('div');
+actionsDiv.className = 'api-actions mt-auto';
+const getBtn = document.createElement('button');
+getBtn.type = 'button';
+getBtn.className = 'btn get-api-btn btn-sm';
+getBtn.innerHTML = '<i class="fas fa-code me-1" aria-hidden="true"></i> GET';
+getBtn.dataset.apiPath = item.path;
+getBtn.dataset.apiName = item.name;
+getBtn.dataset.apiDesc = item.desc;
+if (item.params) getBtn.dataset.apiParams = JSON.stringify(item.params);
+if (item.innerDesc) getBtn.dataset.apiInnerDesc = item.innerDesc;
+getBtn.setAttribute('aria-label', `Dapatkan detail untuk ${item.name}`);
+const status = item.status || "ready";
+const statusConfig = {
+ready: { class: "status-ready", icon: "fa-circle", text: "Ready" },
+error: { class: "status-error", icon: "fa-exclamation-triangle", text: "Error" },
+update: { class: "status-update", icon: "fa-arrow-up", text: "Update" }
+};
+const currentStatus = statusConfig[status] || statusConfig.ready;
+if (status === 'error' || status === 'update') {
+getBtn.disabled = true;
+apiCard.classList.add('api-card-unavailable');
+getBtn.title = `API ini sedang dalam status '${status}', sementara tidak dapat digunakan.`;
+}
+const statusIndicator = document.createElement('div');
+statusIndicator.className = `api-status ${currentStatus.class}`;
+statusIndicator.title = `Status: ${currentStatus.text}`;
+statusIndicator.innerHTML = `<i class="fas ${currentStatus.icon} me-1" aria-hidden="true"></i><span>${currentStatus.text}</span>`;
+actionsDiv.appendChild(getBtn);
+actionsDiv.appendChild(statusIndicator);
+apiCard.appendChild(cardInfo);
+apiCard.appendChild(actionsDiv);
+itemCol.appendChild(apiCard);
+itemsRow.appendChild(itemCol);
+});
+categorySection.appendChild(itemsRow);
+DOM.apiContent.appendChild(categorySection);
+});
+initializeTooltips();
+};
+const displayErrorState = (message) => {
+if (!DOM.apiContent) return;
+DOM.apiContent.innerHTML = `
+<div class="no-results-message text-center p-5">
+<i class="fas fa-exclamation-triangle fa-3x text-danger mb-3"></i>
+<p class="h5">${message}</p>
+<p class="text-muted">Silakan coba muat ulang halaman atau hubungi administrator.</p>
+<button class="btn btn-primary mt-3" onclick="location.reload()">
+<i class="fas fa-sync-alt me-2"></i> Muat Ulang
+</button>
+</div>
+`;
+};
+const handleSearch = () => {
+if (!DOM.searchInput || !DOM.apiContent) return;
+const searchTerm = DOM.searchInput.value.toLowerCase().trim();
+DOM.clearSearchBtn.classList.toggle('visible', searchTerm.length > 0);
+const apiItems = DOM.apiContent.querySelectorAll('.api-item');
+let visibleCategories = new Set();
 apiItems.forEach(item => {
-const path = item.dataset.path.toLowerCase();
-const alias = item.dataset.alias.toLowerCase();
-const description = item.dataset.description.toLowerCase();
-
-if (path.includes(searchTerm) || alias.includes(searchTerm) || description.includes(searchTerm)) {
-item.style.display = '';
-visibleCount++;
-} else {
-item.style.display = 'none';
+const name = (item.dataset.name || '').toLowerCase();
+const desc = (item.dataset.desc || '').toLowerCase();
+const category = (item.dataset.category || '').toLowerCase();
+const matches = name.includes(searchTerm) || desc.includes(searchTerm) || category.includes(searchTerm);
+item.style.display = matches ? '' : 'none';
+if (matches) {
+visibleCategories.add(item.closest('.category-section'));
 }
 });
-
-categories.forEach(category => {
-const visibleItems = category.querySelectorAll('.api-item[style=""]');
-if (visibleItems.length > 0) {
-category.style.display = '';
+DOM.apiContent.querySelectorAll('.category-section').forEach(section => {
+section.style.display = visibleCategories.has(section) ? '' : 'none';
+});
+const noResultsMsg = DOM.apiContent.querySelector('#noResultsMessage') || createNoResultsMessage();
+const allHidden = Array.from(visibleCategories).length === 0 && searchTerm.length > 0;
+if (allHidden) {
+noResultsMsg.querySelector('span').textContent = `"${searchTerm}"`;
+noResultsMsg.style.display = 'flex';
 } else {
-category.style.display = 'none';
+noResultsMsg.style.display = 'none';
+}
+};
+const clearSearch = () => {
+if (!DOM.searchInput) return;
+DOM.searchInput.value = '';
+DOM.searchInput.focus();
+handleSearch();
+DOM.searchInput.classList.add('shake-animation');
+setTimeout(() => DOM.searchInput.classList.remove('shake-animation'), 400);
+};
+const createNoResultsMessage = () => {
+let noResultsMsg = document.getElementById('noResultsMessage');
+if (!noResultsMsg) {
+noResultsMsg = document.createElement('div');
+noResultsMsg.id = 'noResultsMessage';
+noResultsMsg.className = 'no-results-message flex-column align-items-center justify-content-center p-5 text-center';
+noResultsMsg.style.display = 'none';
+noResultsMsg.innerHTML = `
+<i class="fas fa-search fa-3x text-muted mb-3"></i>
+<p class="h5">Tidak ada hasil untuk <span></span></p>
+<button id="clearSearchFromMsg" class="btn btn-primary mt-3">
+<i class="fas fa-times me-2"></i> Hapus Pencarian
+</button>
+`;
+DOM.apiContent.appendChild(noResultsMsg);
+document.getElementById('clearSearchFromMsg').addEventListener('click', clearSearch);
+}
+return noResultsMsg;
+};
+const handleApiGetButtonClick = (event) => {
+const getApiBtn = event.target.closest('.get-api-btn');
+if (!getApiBtn || getApiBtn.disabled) return;
+getApiBtn.classList.add('pulse-animation');
+setTimeout(() => getApiBtn.classList.remove('pulse-animation'), 300);
+currentApiData = {
+path: getApiBtn.dataset.apiPath,
+name: getApiBtn.dataset.apiName,
+desc: getApiBtn.dataset.apiDesc,
+params: getApiBtn.dataset.apiParams ? JSON.parse(getApiBtn.dataset.apiParams) : null,
+innerDesc: getApiBtn.dataset.apiInnerDesc
+};
+setupModalForApi(currentApiData);
+DOM.modal.instance.show();
+};
+const setupModalForApi = (apiData) => {
+DOM.modal.label.textContent = apiData.name;
+DOM.modal.desc.textContent = apiData.desc;
+DOM.modal.content.innerHTML = '';
+DOM.modal.endpoint.textContent = `${window.location.origin}${apiData.path.split('?')[0]}`;
+DOM.modal.spinner.classList.add('d-none');
+DOM.modal.content.classList.add('d-none');
+DOM.modal.container.classList.add('d-none');
+DOM.modal.endpoint.classList.remove('d-none');
+DOM.modal.queryInputContainer.innerHTML = '';
+DOM.modal.submitBtn.classList.add('d-none');
+DOM.modal.submitBtn.disabled = true;
+DOM.modal.submitBtn.innerHTML = '<span>Kirim</span><i class="fas fa-paper-plane ms-2" aria-hidden="true"></i>';
+const paramsFromPath = new URLSearchParams(apiData.path.split('?')[1]);
+const paramKeys = Array.from(paramsFromPath.keys());
+if (paramKeys.length > 0) {
+const paramContainer = document.createElement('div');
+paramContainer.className = 'param-container';
+const formTitle = document.createElement('h6');
+formTitle.className = 'param-form-title';
+formTitle.innerHTML = '<i class="fas fa-sliders-h me-2" aria-hidden="true"></i> Parameter';
+paramContainer.appendChild(formTitle);
+paramKeys.forEach(paramKey => {
+const paramGroup = document.createElement('div');
+paramGroup.className = 'param-group mb-3';
+const labelContainer = document.createElement('div');
+labelContainer.className = 'param-label-container';
+const label = document.createElement('label');
+label.className = 'form-label';
+label.textContent = paramKey;
+label.htmlFor = `param-${paramKey}`;
+const requiredSpan = document.createElement('span');
+requiredSpan.className = 'required-indicator ms-1';
+requiredSpan.textContent = '*';
+label.appendChild(requiredSpan);
+labelContainer.appendChild(label);
+if (apiData.params && apiData.params[paramKey]) {
+const tooltipIcon = document.createElement('i');
+tooltipIcon.className = 'fas fa-info-circle param-info ms-1';
+tooltipIcon.setAttribute('data-bs-toggle', 'tooltip');
+tooltipIcon.setAttribute('data-bs-placement', 'top');
+tooltipIcon.title = apiData.params[paramKey];
+labelContainer.appendChild(tooltipIcon);
+}
+paramGroup.appendChild(labelContainer);
+const inputContainer = document.createElement('div');
+inputContainer.className = 'input-container';
+const inputField = document.createElement('input');
+inputField.type = 'text';
+inputField.className = 'form-control custom-input';
+inputField.id = `param-${paramKey}`;
+inputField.placeholder = `Masukkan ${paramKey}...`;
+inputField.dataset.param = paramKey;
+inputField.required = true;
+inputField.autocomplete = "off";
+inputField.addEventListener('input', validateModalInputs);
+inputContainer.appendChild(inputField);
+paramGroup.appendChild(inputContainer);
+paramContainer.appendChild(paramGroup);
+});
+if (apiData.innerDesc) {
+const innerDescDiv = document.createElement('div');
+innerDescDiv.className = 'inner-desc mt-3';
+innerDescDiv.innerHTML = `<i class="fas fa-info-circle me-2" aria-hidden="true"></i> ${apiData.innerDesc.replace(/\n/g, '<br>')}`;
+paramContainer.appendChild(innerDescDiv);
+}
+DOM.modal.queryInputContainer.appendChild(paramContainer);
+DOM.modal.submitBtn.classList.remove('d-none');
+initializeTooltips(DOM.modal.queryInputContainer);
+} else {
+handleApiRequest(`${window.location.origin}${apiData.path}`, apiData.name);
+}
+};
+const validateModalInputs = () => {
+const inputs = DOM.modal.queryInputContainer.querySelectorAll('input[required]');
+const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
+DOM.modal.submitBtn.disabled = !allFilled;
+DOM.modal.submitBtn.classList.toggle('btn-active', allFilled);
+inputs.forEach(input => {
+if (input.value.trim()) input.classList.remove('is-invalid');
+});
+const errorMsg = DOM.modal.queryInputContainer.querySelector('.alert.alert-danger.fade-in');
+if (errorMsg && allFilled) {
+errorMsg.classList.replace('fade-in', 'fade-out');
+setTimeout(() => errorMsg.remove(), 300);
+}
+};
+const handleSubmitQuery = async () => {
+if (!currentApiData) return;
+const inputs = DOM.modal.queryInputContainer.querySelectorAll('input');
+const newParams = new URLSearchParams();
+let isValid = true;
+inputs.forEach(input => {
+if (input.required && !input.value.trim()) {
+isValid = false;
+input.classList.add('is-invalid');
+input.parentElement.classList.add('shake-animation');
+setTimeout(() => input.parentElement.classList.remove('shake-animation'), 500);
+} else {
+input.classList.remove('is-invalid');
+if (input.value.trim()) newParams.append(input.dataset.param, input.value.trim());
 }
 });
-
-if (visibleCount === 0) {
-noResults.style.display = 'block';
+if (!isValid) {
+let errorMsg = DOM.modal.queryInputContainer.querySelector('.alert.alert-danger');
+if (!errorMsg) {
+errorMsg = document.createElement('div');
+errorMsg.className = 'alert alert-danger mt-3';
+errorMsg.setAttribute('role', 'alert');
+DOM.modal.queryInputContainer.appendChild(errorMsg);
+}
+errorMsg.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i> Harap isi semua kolom yang wajib diisi.';
+errorMsg.classList.remove('fade-out');
+errorMsg.classList.add('fade-in');
+DOM.modal.submitBtn.classList.add('shake-animation');
+setTimeout(() => DOM.modal.submitBtn.classList.remove('shake-animation'), 500);
+return;
+}
+DOM.modal.submitBtn.disabled = true;
+DOM.modal.submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Memproses...';
+const apiUrlWithParams = `${window.location.origin}${currentApiData.path.split('?')[0]}?${newParams.toString()}`;
+DOM.modal.endpoint.textContent = apiUrlWithParams;
+if (DOM.modal.queryInputContainer.firstChild) {
+DOM.modal.queryInputContainer.firstChild.classList.add('fade-out');
+setTimeout(() => {
+if (DOM.modal.queryInputContainer.firstChild) DOM.modal.queryInputContainer.firstChild.style.display = 'none';
+}, 300);
+}
+await handleApiRequest(apiUrlWithParams, currentApiData.name);
+};
+const handleApiRequest = async (apiUrl, apiName) => {
+DOM.modal.spinner.classList.remove('d-none');
+DOM.modal.container.classList.add('d-none');
+DOM.modal.content.innerHTML = '';
+try {
+const controller = new AbortController();
+const timeoutId = setTimeout(() => controller.abort(), 20000);
+const response = await fetch(apiUrl, { signal: controller.signal });
+clearTimeout(timeoutId);
+if (!response.ok) {
+const errorData = await response.json().catch(() => ({ message: response.statusText }));
+throw new Error(`HTTP error! Status: ${response.status} - ${errorData.message || response.statusText}`);
+}
+const contentType = response.headers.get('Content-Type');
+if (contentType && contentType.includes('image/')) {
+const blob = await response.blob();
+const imageUrl = URL.createObjectURL(blob);
+const img = document.createElement('img');
+img.src = imageUrl;
+img.alt = apiName;
+img.className = 'response-image img-fluid rounded shadow-sm fade-in';
+const downloadBtn = document.createElement('a');
+downloadBtn.href = imageUrl;
+downloadBtn.download = `${apiName.toLowerCase().replace(/\s+/g, '-')}.${blob.type.split('/')[1] || 'png'}`;
+downloadBtn.className = 'btn btn-primary mt-3 w-100';
+downloadBtn.innerHTML = '<i class="fas fa-download me-2"></i> Unduh Gambar';
+DOM.modal.content.appendChild(img);
+DOM.modal.content.appendChild(downloadBtn);
+} else if (contentType && contentType.includes('application/json')) {
+const data = await response.json();
+const formattedJson = syntaxHighlightJson(JSON.stringify(data, null, 2));
+DOM.modal.content.innerHTML = formattedJson;
+if (JSON.stringify(data, null, 2).split('\n').length > 20) {
+addCodeFolding(DOM.modal.content);
+}
 } else {
-noResults.style.display = 'none';
+const textData = await response.text();
+DOM.modal.content.textContent = textData || "Respons tidak memiliki konten atau format tidak dikenal.";
+}
+DOM.modal.container.classList.remove('d-none');
+DOM.modal.content.classList.remove('d-none');
+DOM.modal.container.classList.add('slide-in-bottom');
+showToast(`Berhasil mengambil data untuk ${apiName}`, 'success');
+} catch (error) {
+console.error("API Request Error:", error);
+const errorHtml = `
+<div class="error-container text-center p-3">
+<i class="fas fa-exclamation-triangle fa-2x text-danger mb-2"></i>
+<h6 class="text-danger">Terjadi Kesalahan</h6>
+<p class="text-muted small">${error.message || 'Tidak dapat mengambil data dari server.'}</p>
+${currentApiData && currentApiData.path.split('?')[1] ?
+`<button class="btn btn-sm btn-outline-primary mt-2 retry-query-btn">
+<i class="fas fa-sync-alt me-1"></i> Coba Lagi
+</button>` : ''}
+</div>`;
+DOM.modal.content.innerHTML = errorHtml;
+DOM.modal.container.classList.remove('d-none');
+DOM.modal.content.classList.remove('d-none');
+showToast('Gagal mengambil data. Periksa detail di modal.', 'error');
+const retryBtn = DOM.modal.content.querySelector('.retry-query-btn');
+if (retryBtn) {
+retryBtn.onclick = () => {
+if (DOM.modal.queryInputContainer.firstChild) {
+DOM.modal.queryInputContainer.firstChild.style.display = '';
+DOM.modal.queryInputContainer.firstChild.classList.remove('fade-out');
+}
+DOM.modal.submitBtn.disabled = false;
+DOM.modal.submitBtn.innerHTML = '<span>Kirim</span><i class="fas fa-paper-plane ms-2" aria-hidden="true"></i>';
+DOM.modal.container.classList.add('d-none');
+};
+}
+} finally {
+DOM.modal.spinner.classList.add('d-none');
+if (DOM.modal.submitBtn) {
+const hasParams = currentApiData && currentApiData.path && currentApiData.path.includes('?');
+const hasError = DOM.modal.content.querySelector('.error-container');
+const hasRetryButton = DOM.modal.content.querySelector('.retry-query-btn');
+if (!hasParams || (hasError && !hasRetryButton)) {
+DOM.modal.submitBtn.disabled = !hasParams;
+DOM.modal.submitBtn.innerHTML = '<span>Kirim</span><i class="fas fa-paper-plane ms-2" aria-hidden="true"></i>';
+}
+}
+}
+};
+const syntaxHighlightJson = (json) => {
+json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
+let cls = 'json-number';
+if (/^"/.test(match)) {
+cls = /:$/.test(match) ? 'json-key' : 'json-string';
+} else if (/true|false/.test(match)) {
+cls = 'json-boolean';
+} else if (/null/.test(match)) {
+cls = 'json-null';
+}
+return `<span class="${cls}">${match}</span>`;
+});
+};
+const addCodeFolding = (container) => {
+const lines = container.innerHTML.split('\n');
+let currentLevel = 0;
+let foldableHtml = '';
+let inFoldableBlock = false;
+lines.forEach((line, index) => {
+const trimmedLine = line.trim();
+if (trimmedLine.endsWith('{') || trimmedLine.endsWith('[')) {
+if (currentLevel === 0) {
+foldableHtml += `<div class="code-fold-trigger" data-folded="false" role="button" tabindex="0" aria-expanded="true">${line}<span class="fold-indicator ms-2 small text-muted">(<i class="fas fa-chevron-down"></i> Lipat)</span></div><div class="code-fold-content">`;
+inFoldableBlock = true;
+} else {
+foldableHtml += line + '\n';
+}
+currentLevel++;
+} else if (trimmedLine.startsWith('}') || trimmedLine.startsWith(']')) {
+currentLevel--;
+foldableHtml += line + '\n';
+if (currentLevel === 0 && inFoldableBlock) {
+foldableHtml += '</div>';
+inFoldableBlock = false;
+}
+} else {
+foldableHtml += line + (index === lines.length - 1 ? '' : '\n');
 }
 });
-
-// Initial load
-document.addEventListener('DOMContentLoaded', () => {
-loadApis();
-loadNotifications();
+container.innerHTML = foldableHtml;
+container.querySelectorAll('.code-fold-trigger').forEach(trigger => {
+trigger.addEventListener('click', () => toggleFold(trigger));
+trigger.addEventListener('keydown', (e) => {
+if (e.key === 'Enter' || e.key === ' ') {
+e.preventDefault();
+toggleFold(trigger);
+}
+});
+});
+};
+const toggleFold = (trigger) => {
+const content = trigger.nextElementSibling;
+const isFolded = trigger.dataset.folded === 'true';
+const indicator = trigger.querySelector('.fold-indicator');
+if (isFolded) {
+content.style.maxHeight = content.scrollHeight + "px";
+trigger.dataset.folded = "false";
+trigger.setAttribute('aria-expanded', 'true');
+indicator.innerHTML = '(<i class="fas fa-chevron-up"></i> Tutup)';
+} else {
+content.style.maxHeight = "0px";
+trigger.dataset.folded = "true";
+trigger.setAttribute('aria-expanded', 'false');
+indicator.innerHTML = '(<i class="fas fa-chevron-down"></i> Buka)';
+}
+};
+const observeApiItems = () => {
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('in-view', 'slideInUp');
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1 });
+document.querySelectorAll('.api-item:not(.in-view)').forEach(item => {
+observer.observe(item);
+});
+};
+const initializeTooltips = (parentElement = document) => {
+const tooltipTriggerList = [].slice.call(parentElement.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(tooltipTriggerEl => {
+const existingTooltip = bootstrap.Tooltip.getInstance(tooltipTriggerEl);
+if (existingTooltip) {
+existingTooltip.dispose();
+}
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+};
+init();
 });
 </script>
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
