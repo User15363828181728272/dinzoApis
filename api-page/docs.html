@@ -256,21 +256,7 @@ transform: scale(0.98);
 animation: fadeOut 0.2s ease-out forwards;
 }
 
-/* Transisi Smooth untuk Kategori dan Endpoint */
-.category-content,
-.endpoint-content {
-max-height: 0;
-overflow: hidden;
-opacity: 0;
-transition: max-height 0.5s ease-out, opacity 0.5s ease-out, transform 0.3s ease;
-transform: translateY(-10px);
-}
-.category-content.expanded,
-.endpoint-content.expanded {
-max-height: 1000px; /* Nilai tinggi maksimum yang cukup besar */
-opacity: 1;
-transform: translateY(0);
-}
+/* --- CUSTOM STYLES FOR SMOOTH TOGGLES AND EXECUTE BUTTON --- */
 /* Gaya Tombol Execute Merah */
 .execute-button {
 background-color: #ef4444; /* Tailwind red-500 */
@@ -278,6 +264,20 @@ color: white;
 }
 .execute-button:hover {
 background-color: #dc2626; /* Tailwind red-600 */
+}
+
+/* Transisi Smooth untuk Kategori dan Endpoint */
+.smooth-toggle {
+max-height: 0;
+overflow: hidden;
+opacity: 0;
+transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease;
+transform: translateY(-5px);
+}
+.smooth-toggle.expanded {
+max-height: 1000px; /* Nilai tinggi maksimum yang cukup besar */
+opacity: 1;
+transform: translateY(0);
 }
 
 /* Full-width container overrides */
@@ -478,7 +478,8 @@ if (window.hljs) {
 hljs.highlightElement(el);
 }
 }
-// Toggle functions - Modified for smooth transitions
+
+// --- MODIFIED TOGGLE FUNCTIONS FOR SMOOTH TRANSITIONS ---
 function toggleCategory(index) {
 const category = document.getElementById(`category-${index}`);
 const icon = document.getElementById(`category-icon-${index}`);
@@ -504,10 +505,8 @@ const responseContent = document.getElementById(`response-content-${catIndex}-${
 const clearButton = document.getElementById(`clear-${catIndex}-${endpointIndex}`);
 responseDiv.classList.remove('hidden');
 
-// Pastikan responseDiv bisa terlihat dengan smooth
-responseDiv.style.maxHeight = 'none';
-responseDiv.style.opacity = '1';
-responseDiv.style.transform = 'translateY(0)';
+// Terapkan juga transisi smooth untuk response div
+responseDiv.classList.add('smooth-toggle', 'expanded');
 
 const formData = new FormData(form);
 const fetchOptions = {
@@ -608,6 +607,8 @@ setTimeout(() => {
 responseContent.innerHTML = '';
 responseDiv.classList.add('hidden');
 responseDiv.classList.remove('fade-out');
+// Hapus kelas smooth-toggle dan expanded saat di-clear
+responseDiv.classList.remove('smooth-toggle', 'expanded');
 }, 200);
 }
 // Load and render APIs from OpenAPI spec - MODIFIED
@@ -661,9 +662,9 @@ html += `
 <span class="truncate max-w-xs text-sm text-white">${category.name}</span>
 <span class="ml-2 text-xs text-gray-400">(${category.items.length})</span>
 </h2>
-<span class="material-icons text-white transition-transform duration-150" id="category-icon-${catIndex}">expand_less</span> <!-- Default icon expanded -->
+<span class="material-icons text-white transition-transform duration-150" id="category-icon-${catIndex}">expand_more</span> <!-- Changed icon color -->
 </button>
-<div id="category-${catIndex}" class="category-content expanded">`; // Always start as expanded with class
+<div id="category-${catIndex}" class="smooth-toggle hidden">`; // Gunakan kelas smooth-toggle dan hidden
 
 category.items.forEach((item, endpointIndex) => {
 const method = item.method;
@@ -700,10 +701,9 @@ ${method}
 </div>
 </div>
 </div>
-<span class="material-icons text-white transition-transform duration-150 flex-shrink-0" id="endpoint-icon-${catIndex}-${endpointIndex}">expand_less</span> <!-- Default icon expanded -->
+<span class="material-icons text-white transition-transform duration-150 flex-shrink-0" id="endpoint-icon-${catIndex}-${endpointIndex}">expand_more</span> <!-- Changed icon color -->
 </button>
-<div id="endpoint-${catIndex}-${endpointIndex}" class="endpoint-content expanded">`; // Always start as expanded with class
-html += `
+<div id="endpoint-${catIndex}-${endpointIndex}" class="smooth-toggle hidden bg-gray-800 p-4 border-t border-gray-600 space-y-4"> <!-- Changed card colors, gunakan kelas smooth-toggle dan hidden -->
 <div class="mb-3">
 <div class="text-gray-300 text-xs">${item.desc}</div> <!-- Changed text color -->
 </div>
@@ -855,7 +855,7 @@ Clear
 html += `<div class="text-yellow-400 text-xs p-3 bg-yellow-500/20 border border-yellow-500/30">Endpoint ini tidak digunakan lagi.</div>`;
 }
 html += `
-<div id="response-${catIndex}-${endpointIndex}" class="hidden mt-4">
+<div id="response-${catIndex}-${endpointIndex}" class="smooth-toggle hidden mt-4"> <!-- Gunakan kelas smooth-toggle dan hidden -->
 <div class="text-gray-200 font-bold text-xs mb-2 flex items-center"> <!-- Changed text color -->
 <span class="material-icons text-sm mr-1">code</span>
 RESPONSE
@@ -981,7 +981,7 @@ category.style.animationDelay = `${index * 70}ms`;
 });
 } catch (error) {
 apiList.innerHTML = '<p class="text-red-500">Failed to load API data.</p>';
-console.error('Error loading API ', error);
+console.error('Error loading API data:', error);
 }
 }
 // Load and render notifications (from original file)
