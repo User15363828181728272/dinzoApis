@@ -1,0 +1,7 @@
+{
+  "name": "Soraa AI",
+  "description": "A powerful AI agent named Soraa AI with specialized coding tools, web development features, and daily usage limits. Features include code previews, ZIP downloads, and image support.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
